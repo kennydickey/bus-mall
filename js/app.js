@@ -60,16 +60,15 @@ function itemClicked(event){ //event allows to take in event that happened
 
   //this is from the event object shich we ran debug to see vvv
   if(event.srcElement.id === '1'){
-    allItems[itemRandomDisplay1].timesClicked++; //item1Clicked++;
+    allItems[itemRandomDisplay1].timesClicked++; item1Clicked++;
   } else if (event.srcElement.id === '2'){
-    allItems[itemRandomDisplay2].timesClicked++; //item2Clicked++;
+    allItems[itemRandomDisplay2].timesClicked++; item2Clicked++;
   } else if (event.srcElement.id === '3'){
-    allItems[itemRandomDisplay3].timesClicked++; //item3Clicked++;
+    allItems[itemRandomDisplay3].timesClicked++; item3Clicked++;
   }
-
-  if(item1Clicked + item2Clicked + item3Clicked > rounds){ //(25)
+  if(item1Clicked + item2Clicked + item3Clicked > rounds){
     var dataOutput = document.getElementById('msg');
-    dataOutput.textContent = `you picked item 1 ${item1Clicked} times, item 2 ${item2Clicked} times, and item 3 ${item3Clicked} times`;
+    dataOutput.textContent = `you picked item 1: ${item1Clicked} times, item 2: ${item2Clicked} times, and item 3: ${item3Clicked} times`;
     //todo loop through allItems and diplay
   }
 }
