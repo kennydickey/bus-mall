@@ -46,6 +46,8 @@ var item1Clicked = 0;
 var item2Clicked = 0;
 var item3Clicked = 0;
 var rounds = 25;
+
+
 //create a function to store clicks
 function itemClicked(event){ //event allows to take in event that happened
   console.log('an image was clicked');
@@ -70,12 +72,25 @@ function itemClicked(event){ //event allows to take in event that happened
     var dataOutput = document.getElementById('msg');
     dataOutput.textContent = `you picked item 1: ${item1Clicked} times, item 2: ${item2Clicked} times, and item 3: ${item3Clicked} times`;
     //todo loop through allItems and diplay
+    for(var i = 0; i < rounds ; i++){
+      getImage[i].removeEventListener('click', itemClicked);
+    }
   }
 }
 
 
 //set up our items to call a function when there is a click
 // var getImage = document.getElementsByTagName('img');  moved to..beginning
-for(var i = 0; i < getImage.length; i++){  //iterates over amount of all images
+
+
+// if(allItems.length > 25){
+//   for(var j = 0; j < getImage.length; j++){
+//     getImage[j].removeEventListener('click', itemClicked);
+//   }
+// }
+
+
+for(var i = 0; i < getImage.length; i++){ //iterates over amount of all images
   getImage[i].addEventListener('click', itemClicked);
 }
+
