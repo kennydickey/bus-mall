@@ -6,9 +6,12 @@ h1{
 }
 
 img{
-  width: 100px;
-  height: 300px;
+  width: 250px;
+  height: 200px;
   margin: 20px
+}
+#imgSection{
+  min-width: 1000px
 }
 
 .titleImg{
@@ -18,5 +21,7 @@ img{
 }
 
 footer{
-  background: gray;
+  background: white;
+    max-width: 900px;
+    max-height: 300px;
 }
