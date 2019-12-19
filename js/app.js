@@ -69,9 +69,23 @@ function itemClicked(event){ //event allows to take in event that happened
   var itemRandomDisplay2 = Math.floor(Math.random() * allItems.length);
   var itemRandomDisplay3 = Math.floor(Math.random() * allItems.length);
   //this next line is key - changes image source to random url ^ v
+  var nextIndex1 = Math.ceil(Math.random() * allItems.length);
+  var nextIndex2 = Math.ceil(Math.random() * allItems.length);
+  var nextIndex3 = Math.ceil(Math.random() * allItems.length);
+
   getImage[0].src = allItems[itemRandomDisplay1].imgUrl;
   getImage[1].src = allItems[itemRandomDisplay2].imgUrl;
   getImage[2].src = allItems[itemRandomDisplay3].imgUrl;
+
+  if(itemRandomDisplay1 === itemRandomDisplay2 || itemRandomDisplay1 === itemRandomDisplay3){
+    getImage[0].src= allItems[nextIndex1].imgUrl;
+  }
+  if(itemRandomDisplay2 === itemRandomDisplay1 || itemRandomDisplay2 === itemRandomDisplay3){
+    getImage[1].src= allItems[nextIndex2].imgUrl;
+  }
+  if(itemRandomDisplay3 === itemRandomDisplay1 || itemRandomDisplay3 === itemRandomDisplay2){
+    getImage[2].src= allItems[nextIndex3].imgUrl;
+  }
   //increments times shown vvv
   allItems[itemRandomDisplay1].timesShown++;
   allItems[itemRandomDisplay2].timesShown++;
