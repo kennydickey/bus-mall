@@ -1,56 +1,63 @@
 'use strict';
 console.log('js linked!');
 
-
-
 var getImage = document.getElementsByTagName('img');
-
-// //for later for skipping over duplicates
-// var itemRandomDisplay1 = 0;
-// var itemRandomDisplay2 = 0;
-// var itemRandomDisplay3 = 0;
-
 
 var allItems = [];
 
-
-
 //bus items constructor
-function Bus(name, imgUrl){
+function Bus(name, imgUrl, timesClicked, timesShown){
   this.name = name;
   this.imgUrl = imgUrl;
-  this.timesClicked = 0;
-  this.timesShown = 0;
+  if (timesClicked) {
+    this.timesClicked = timesClicked;
+  } else {
+    this.timesClicked = 0;
+  }
+  if (timesShown) {
+    this.timesShown = timesShown;
+  } else {
+    this.timesShown = 0;
+  }
   allItems.push(this); //push any this. object member into allItems array ^^
 }
 
 
 //actually create our bus items
-new Bus('bag', 'img/bag.jpg');
-new Bus('banana', 'img/banana.jpg');
-new Bus('bathroom', 'img/bathroom.jpg');
-new Bus('boots', 'img/boots.jpg');
-new Bus('breakfast', 'img/breakfast.jpg');
-new Bus('bubblegum', 'img/bubblegum.jpg');
-new Bus('chair', 'img/chair.jpg');
-new Bus('cthulhu', 'img/cthulhu.jpg');
-new Bus('dog-duck', 'img/dog-duck.jpg');
-new Bus('dragon', 'img/dragon.jpg');
-new Bus('pen', 'img/pen.jpg');
-new Bus('pet-sweep', 'img/pet-sweep.jpg');
-new Bus('scissors', 'img/scissors.jpg');
-new Bus('shark', 'img/shark.jpg');
-new Bus('sweep', 'img/sweep.png');
-new Bus('tuantuan', 'img/tauntaun.jpg');
-new Bus('unicorn', 'img/unicorn.jpg');
-new Bus('usb', 'img/usb.gif');
-new Bus('water-can', 'img/water-can.jpg');
-new Bus('wine-glass', 'img/wine-glass.jpg');
+var getPrevious = localStorage.getItem('set');
+if(getPrevious){ //
+  var parsedPrevious = JSON.parse(getPrevious);
+  for(let i = 0; i < parsedPrevious.length; i++){
+    new Bus(parsedPrevious[i].name, parsedPrevious[i].imgUrl, parsedPrevious[i].timesClicked, parsedPrevious[i].timesShown);
+    console.log('hello');
+  }
+} else{
+  new Bus('bag', 'img/bag.jpg');
+  new Bus('banana', 'img/banana.jpg');
+  new Bus('bathroom', 'img/bathroom.jpg');
+  new Bus('boots', 'img/boots.jpg');
+  new Bus('breakfast', 'img/breakfast.jpg');
+  new Bus('bubblegum', 'img/bubblegum.jpg');
+  new Bus('chair', 'img/chair.jpg');
+  new Bus('cthulhu', 'img/cthulhu.jpg');
+  new Bus('dog-duck', 'img/dog-duck.jpg');
+  new Bus('dragon', 'img/dragon.jpg');
+  new Bus('pen', 'img/pen.jpg');
+  new Bus('pet-sweep', 'img/pet-sweep.jpg');
+  new Bus('scissors', 'img/scissors.jpg');
+  new Bus('shark', 'img/shark.jpg');
+  new Bus('sweep', 'img/sweep.png');
+  new Bus('tuantuan', 'img/tauntaun.jpg');
+  new Bus('unicorn', 'img/unicorn.jpg');
+  new Bus('usb', 'img/usb.gif');
+  new Bus('water-can', 'img/water-can.jpg');
+  new Bus('wine-glass', 'img/wine-glass.jpg');
+}
 
 var item1Clicked = 0;
 var item2Clicked = 0;
 var item3Clicked = 0;
-var rounds = 25;
+var rounds = 5;
 
 
 //create a function to store clicks
@@ -97,7 +104,10 @@ function itemClicked(event){ //event allows to take in event that happened
   }
   // var roundCount = function  change num back to  >rounds-1!!!!
   if(item1Clicked + item2Clicked + item3Clicked > rounds - 1){
+    localStorage.setItem('set', JSON.stringify(allItems));
+
     renderGraph();
+
   }
 
 }
@@ -210,5 +220,18 @@ function renderGraph(){
   });
 
 } //end of graph function
+
+
+//JSON------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
 
 
