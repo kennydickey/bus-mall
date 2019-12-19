@@ -57,7 +57,7 @@ if(getPrevious){ //
 var item1Clicked = 0;
 var item2Clicked = 0;
 var item3Clicked = 0;
-var rounds = 5;
+var rounds = 25;
 
 
 //create a function to store clicks
