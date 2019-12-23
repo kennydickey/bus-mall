@@ -1,3 +1,16 @@
+header{
+  background-color: rgba(180, 180, 220, 0.4);
+  height: 40px;
+}
+
+button:hover{
+  background-color: #ccccff;
+}
+
+header:hover{
+  background-color: #ccccff;
+}
+
 h1{
   color: red;
 }
@@ -6,9 +19,9 @@ h1{
 }
 
 img{
-  width: 250px;
-  height: 200px;
-  margin: 20px
+  width: 260px;
+  height: 210px;
+  margin: 20px;
 }
 #imgSection{
   min-width: 1000px
