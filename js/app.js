@@ -114,7 +114,7 @@ function itemClicked(event){ //event allows to take in event that happened
   //fill in li's
   for(var j = 0; j < allItems.length; j++){
     var reRenderText = document.getElementsByTagName('li')[j];
-    reRenderText.textContent = `${allItems[j].name}: ` + `${allItems[j].timesClicked}: `;
+    reRenderText.textContent = `${allItems[j].name}s: ` + `${allItems[j].timesClicked} clicks! `;
   }
   // var roundCount = function  change num back to  >rounds-1!!!!
   if(item1Clicked + item2Clicked + item3Clicked > rounds - 1){
@@ -238,10 +238,14 @@ function renderGraph(){
 
 //JSON------------------------------------------------------
 
+// var resetPage = document.getElementById('clear');
+// resetPage.addEventListener('click', reload());
 
+// // document.getElementById("myBtn").addEventListener("click", function(){
+// //   document.getElementById("demo").innerHTML = "Hello World";
+// // });
 
-
-
+// object.addEventListener("click", myScript);
 
 
 
